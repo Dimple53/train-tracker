@@ -31,16 +31,12 @@ A simple train departure tracker built for the DPS Technical Challenge. It lets 
 
 ### Search Screen
 
-![Search Screen](screenshots/search_page.png)
-
-<!-- ![Search Screen]<img src="screenshots/search_page.png" width="45%" />
-  <img src="screenshots/results_page1.png" width="45%" />
-  <img src="screenshots/results_page2.png" width="45%" /> -->
+![Search Screen](/screenshots/search_page.png)
 
 ### Results Screen
 
-![Results Screen](screenshots/results_page1.png)
-![Results Screen](screenshots/results_page2.png)
+![Results Screen](/screenshots/results_page1.png)
+![Results Screen](/screenshots/results_page2.png)
 
 ## Project Structure
 
