@@ -1,6 +1,6 @@
 # Lagovia Train Tracker
 
-A simple train departure tracker built for the DPS Technical Challenge.
+A simple train departure tracker built for the DPS Technical Challenge. It lets users search for a station by partial name and see all upcoming departures within the next 15 minutes.
 
 ## Tech Stack
 
@@ -20,8 +20,8 @@ A simple train departure tracker built for the DPS Technical Challenge.
 - Retrieves departures from iRail API
 - Shows departures within the next 15 minutes
 - Displays:
-  - Station
-  - Train Number
+  - Station name
+  - Train Number (e.g. `IC1818`)
   - Destination
   - Scheduled Departure Time
   - Delay Minutes
@@ -33,6 +33,10 @@ A simple train departure tracker built for the DPS Technical Challenge.
 
 ![Search Screen](screenshots/search_page.png)
 
+<!-- ![Search Screen]<img src="screenshots/search_page.png" width="45%" />
+  <img src="screenshots/results_page1.png" width="45%" />
+  <img src="screenshots/results_page2.png" width="45%" /> -->
+
 ### Results Screen
 
 ![Results Screen](screenshots/results_page1.png)
@@ -40,24 +44,26 @@ A simple train departure tracker built for the DPS Technical Challenge.
 
 ## Project Structure
 
+```
 train-tracker/
 ├── backend/
 │   ├── app/
-│   │   ├── main.py
-│   │   ├── irail.py
-│   │   └── services.py
+│   │   ├── main.py          # FastAPI app, route definitions
+│   │   ├── irail.py         # iRail API client (stations + departures)
+│   │   └── services.py      # Business logic: filtering, formatting
 │   └── requirements.txt
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── api.js
+│   │   ├── App.jsx          # Root component, search state
+│   │   ├── api.js           # Fetch wrapper for /departures
 │   │   └── components/
-│   │       └── DeparturesTable.jsx
+│   │       └── DeparturesTable.jsx  # Results table grouped by station
 │   └── package.json
 │
 ├── README.md
 └── AI_USAGE.md
+```
 
 ## Running Locally
 
@@ -91,7 +97,7 @@ npm run dev
 
 Frontend runs on:
 
-http://localhost:5173
+http://localhost:5174
 
 ---
 
@@ -175,7 +181,7 @@ The API validates user input and returns a clear error message when the search q
 
 ## Assumptions
 
-- Station matching is performed using case-insensitive substring search.
+- Station matching is case-insensitive substring search (e.g. `"bru"` matches `"Brugge"` and `"Brussel-Zuid"`).
 - Time calculations are performed using UTC timestamps returned by the iRail API.
 - Only upcoming departures within the next 15 minutes are included in results.
 
@@ -210,4 +216,4 @@ https://docs.irail.be/
 
 ## Author
 
-Created as part of the DPS Technical Challenge.
+Created as part of the Digital Product School Technical Challenge.
