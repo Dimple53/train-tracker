@@ -46,33 +46,6 @@ async def get_departures_for_station(station):
 
     results = []
 
-    # for dep in departures:
-    #     scheduled = datetime.fromtimestamp(int(dep["time"]), tz=timezone.utc)
-    #     if is_within_15_minutes(scheduled):
-    #         results.append(convert_departure(dep, station["name"]))
-
-    # for dep in departures:
-    #   scheduled = datetime.fromtimestamp(
-    #       int(dep["time"]),
-    #       tz=timezone.utc
-    #   )
-
-    #   now = datetime.now(timezone.utc)
-    #   diff_minutes = (scheduled - now).total_seconds() / 60
-
-    #   print(
-    #       f"Station={station['name']}, "
-    #       f"Departure={scheduled.isoformat()}, "
-    #       f"Now={now.isoformat()}, "
-    #       f"Diff={diff_minutes:.2f} minutes"
-    #   )
-
-    #   if is_within_15_minutes(scheduled):
-    #       print("KEEPING")
-    #       results.append(convert_departure(dep, station["name"]))
-    #   else:
-    #       print("SKIPPING")
-
     for dep in departures:
       scheduled = datetime.fromtimestamp(int(dep["time"]), tz=timezone.utc)
       now = datetime.now(timezone.utc)
